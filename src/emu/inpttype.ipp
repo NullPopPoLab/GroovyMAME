@@ -568,18 +568,18 @@ namespace {
 
 #define CORE_INPUT_TYPES_COIN \
 		CORE_INPUT_TYPES_BEGIN(coin) \
-		INPUT_PORT_DIGITAL_TYPE(  0, OTHER,    COIN1,               N_p("input-name", "Coin 1"),                 input_seq(JOYCODE_COIN_INDEXED(0)) ) \
-		INPUT_PORT_DIGITAL_TYPE(  0, OTHER,    COIN2,               N_p("input-name", "Coin 2"),                 input_seq(JOYCODE_COIN_INDEXED(1)) ) \
-		INPUT_PORT_DIGITAL_TYPE(  0, OTHER,    COIN3,               N_p("input-name", "Coin 3"),                 input_seq(JOYCODE_COIN_INDEXED(2)) ) \
-		INPUT_PORT_DIGITAL_TYPE(  0, OTHER,    COIN4,               N_p("input-name", "Coin 4"),                 input_seq(JOYCODE_COIN_INDEXED(3)) ) \
-		INPUT_PORT_DIGITAL_TYPE(  0, OTHER,    COIN5,               N_p("input-name", "Coin 5"),                 input_seq(JOYCODE_COIN_INDEXED(4)) ) \
-		INPUT_PORT_DIGITAL_TYPE(  0, OTHER,    COIN6,               N_p("input-name", "Coin 6"),                 input_seq(JOYCODE_COIN_INDEXED(5)) ) \
-		INPUT_PORT_DIGITAL_TYPE(  0, OTHER,    COIN7,               N_p("input-name", "Coin 7"),                 input_seq(JOYCODE_COIN_INDEXED(6)) ) \
-		INPUT_PORT_DIGITAL_TYPE(  0, OTHER,    COIN8,               N_p("input-name", "Coin 8"),                 input_seq(JOYCODE_COIN_INDEXED(7)) ) \
-		INPUT_PORT_DIGITAL_TYPE(  0, OTHER,    COIN9,               N_p("input-name", "Coin 9"),                 input_seq(JOYCODE_COIN_INDEXED(8)) ) \
-		INPUT_PORT_DIGITAL_TYPE(  0, OTHER,    COIN10,              N_p("input-name", "Coin 10"),                input_seq(JOYCODE_COIN_INDEXED(9)) ) \
-		INPUT_PORT_DIGITAL_TYPE(  0, OTHER,    COIN11,              N_p("input-name", "Coin 11"),                input_seq(JOYCODE_COIN_INDEXED(10)) ) \
-		INPUT_PORT_DIGITAL_TYPE(  0, OTHER,    COIN12,              N_p("input-name", "Coin 12"),                input_seq(JOYCODE_COIN_INDEXED(11)) ) \
+		INPUT_PORT_DIGITAL_TYPE(  0, OTHER,    COIN1,               N_p("input-name", "Coin 1"),                 input_seq(JOYCODE_SELECT_INDEXED(0)) ) \
+		INPUT_PORT_DIGITAL_TYPE(  0, OTHER,    COIN2,               N_p("input-name", "Coin 2"),                 input_seq(JOYCODE_SELECT_INDEXED(1)) ) \
+		INPUT_PORT_DIGITAL_TYPE(  0, OTHER,    COIN3,               N_p("input-name", "Coin 3"),                 input_seq(JOYCODE_SELECT_INDEXED(2)) ) \
+		INPUT_PORT_DIGITAL_TYPE(  0, OTHER,    COIN4,               N_p("input-name", "Coin 4"),                 input_seq(JOYCODE_SELECT_INDEXED(3)) ) \
+		INPUT_PORT_DIGITAL_TYPE(  0, OTHER,    COIN5,               N_p("input-name", "Coin 5"),                 input_seq(JOYCODE_SELECT_INDEXED(4)) ) \
+		INPUT_PORT_DIGITAL_TYPE(  0, OTHER,    COIN6,               N_p("input-name", "Coin 6"),                 input_seq(JOYCODE_SELECT_INDEXED(5)) ) \
+		INPUT_PORT_DIGITAL_TYPE(  0, OTHER,    COIN7,               N_p("input-name", "Coin 7"),                 input_seq(JOYCODE_SELECT_INDEXED(6)) ) \
+		INPUT_PORT_DIGITAL_TYPE(  0, OTHER,    COIN8,               N_p("input-name", "Coin 8"),                 input_seq(JOYCODE_SELECT_INDEXED(7)) ) \
+		INPUT_PORT_DIGITAL_TYPE(  0, OTHER,    COIN9,               N_p("input-name", "Coin 9"),                 input_seq(JOYCODE_SELECT_INDEXED(8)) ) \
+		INPUT_PORT_DIGITAL_TYPE(  0, OTHER,    COIN10,              N_p("input-name", "Coin 10"),                input_seq(JOYCODE_SELECT_INDEXED(9)) ) \
+		INPUT_PORT_DIGITAL_TYPE(  0, OTHER,    COIN11,              N_p("input-name", "Coin 11"),                input_seq(JOYCODE_SELECT_INDEXED(10)) ) \
+		INPUT_PORT_DIGITAL_TYPE(  0, OTHER,    COIN12,              N_p("input-name", "Coin 12"),                input_seq(JOYCODE_SELECT_INDEXED(11)) ) \
 		INPUT_PORT_DIGITAL_TYPE(  0, OTHER,    BILL1,               N_p("input-name", "Bill 1"),                 input_seq() ) \
 		CORE_INPUT_TYPES_END()
 
