@@ -4,7 +4,7 @@
 #include "libretro.h"
 
 #ifndef RETRO_MAX_BUTTONS
-#define RETRO_MAX_BUTTONS 16
+#define RETRO_MAX_BUTTONS 19
 #endif
 
 #define HAVE_RGB32
@@ -41,6 +41,9 @@ enum
    RETROPAD_R2,
    RETROPAD_L3,
    RETROPAD_R3,
+   RETROPAD_C,
+   RETROPAD_Z,
+   RETROPAD_MENU,
    RETROPAD_TOTAL
 };
 

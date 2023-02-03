@@ -79,6 +79,7 @@ void windows_osd_interface::poll_input(running_machine &machine) const
 
 void windows_osd_interface::customize_input_type_list(std::vector<input_type_entry> &typelist)
 {
+#if 0
 	const char* uimode;
 
 	// loop over the defaults
@@ -149,6 +150,7 @@ void windows_osd_interface::customize_input_type_list(std::vector<input_type_ent
 			default:
 				break;
 		}
+#endif
 }
 
 #endif // defined(OSD_WINDOWS)

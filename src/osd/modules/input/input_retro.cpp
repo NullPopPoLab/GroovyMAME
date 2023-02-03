@@ -152,26 +152,29 @@ kt_table ktable[]={
 
 const char *Buttons_Name[RETRO_MAX_BUTTONS]=
 {
-	"B",           //0
-	"Y",           //1
-	"SELECT",      //2
-	"START",       //3
+	"Button 2",    //0
+	"Button 5",    //1
+	"Coin",        //2
+	"Start",       //3
 	"D-Pad Up",    //4
 	"D-Pad Down",  //5
 	"D-Pad Left",  //6
 	"D-Pad Right", //7
-	"A",           //8
-	"X",           //9
-	"L1",          //10
-	"R1",          //11
-	"L2",          //12
-	"R2",          //13
-	"L3",          //14
-	"R3",          //15
+	"Button 3",    //8
+	"Button 6",    //9
+	"Button 7",    //10
+	"Button 8",    //11
+	"Button 9",    //12
+	"Button 10",   //13
+	"Clear",       //14
+	"Cancel",      //15
+	"Button 1",
+	"Button 4",
+	"Menu",
 };
 
-//    Default : B ->B1 | A ->B2 | Y ->B3 | X ->B4 | L ->B5 | R ->B6
-int Buttons_mapping[]={RETROPAD_A,RETROPAD_B,RETROPAD_X,RETROPAD_Y,RETROPAD_L,RETROPAD_R};
+//    Default : C ->B1 | B ->B2 | A ->B3 | Z ->B4 | Y ->B5 | X ->B6 | L1 ->B7 | R1 ->B8 | L2 ->B9 | R2 ->B10
+int Buttons_mapping[]={RETROPAD_C,RETROPAD_B,RETROPAD_A,RETROPAD_Z,RETROPAD_Y,RETROPAD_X,RETROPAD_L,RETROPAD_R,RETROPAD_L2,RETROPAD_R2};
 
 void Input_Binding(running_machine &machine)
 {
@@ -182,6 +185,7 @@ void Input_Binding(running_machine &machine)
    log_cb(RETRO_LOG_INFO, "YEAR: %s\n", machine.system().year);
    log_cb(RETRO_LOG_INFO, "MANUFACTURER: %s\n", machine.system().manufacturer);
 
+#if 0
    Buttons_mapping[0]=RETROPAD_A;
    Buttons_mapping[1]=RETROPAD_B;
    Buttons_mapping[2]=RETROPAD_X;
@@ -527,6 +531,7 @@ void Input_Binding(running_machine &machine)
       Buttons_mapping[5]=RETROPAD_R;
 
    }
+#endif
 
    if (environ_cb(RETRO_ENVIRONMENT_GET_INPUT_BITMASKS, NULL))
       libretro_supports_bitmasks = true;
@@ -568,7 +573,7 @@ void retro_osd_interface::process_joypad_state(running_machine &machine)
 {
    unsigned i, j;
    int analog_l2, analog_r2;
-   int16_t ret[6];
+   int32_t ret[6];
 
    if (libretro_supports_bitmasks)
    {
@@ -1022,20 +1027,23 @@ public:
 			devinfo.device()->add_item(Buttons_Name[RETROPAD_START], ITEM_ID_START,
 				generic_button_get_state<std::int32_t>, &joystate[i].button[RETROPAD_START]);
 
-			devinfo.device()->add_item(Buttons_Name[RETROPAD_SELECT], ITEM_ID_SELECT,
+			devinfo.device()->add_item(Buttons_Name[RETROPAD_SELECT], ITEM_ID_COIN,
 				generic_button_get_state<std::int32_t>, &joystate[i].button[RETROPAD_SELECT]);
 
-			for(j = 0; j < 6; j++)
+			devinfo.device()->add_item(Buttons_Name[RETROPAD_MENU], ITEM_ID_MENUBTN,
+				generic_button_get_state<std::int32_t>, &joystate[i].button[RETROPAD_MENU]);
+
+			devinfo.device()->add_item(Buttons_Name[RETROPAD_L3], ITEM_ID_CLEARBTN,
+				generic_button_get_state<std::int32_t>, &joystate[i].button[RETROPAD_L3]);
+
+			devinfo.device()->add_item(Buttons_Name[RETROPAD_R3], ITEM_ID_CANCELBTN,
+				generic_button_get_state<std::int32_t>, &joystate[i].button[RETROPAD_R3]);
+
+			for(j = 0; j < 10; j++)
 				devinfo.device()->add_item(Buttons_Name[Buttons_mapping[j]],
 					 (input_item_id)(ITEM_ID_BUTTON1+j),
 					 generic_button_get_state<std::int32_t>,
 					  &joystate[i].button[Buttons_mapping[j]]);
-
-			devinfo.device()->add_item(Buttons_Name[RETROPAD_L3], ITEM_ID_BUTTON9,
-				generic_button_get_state<std::int32_t>, &joystate[i].button[RETROPAD_L3]);
-
-			devinfo.device()->add_item(Buttons_Name[RETROPAD_R3], ITEM_ID_BUTTON10,
-				generic_button_get_state<std::int32_t>, &joystate[i].button[RETROPAD_R3]);
 
 			// D-Pad
 			devinfo.device()->add_item(Buttons_Name[RETROPAD_PAD_UP], static_cast<input_item_id>(ITEM_ID_HAT1UP+i*4),

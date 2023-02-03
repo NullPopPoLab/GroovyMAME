@@ -140,7 +140,8 @@ void sdl_event_manager::process_window_event(running_machine &machine, SDL_Event
 //============================================================
 
 void sdl_osd_interface::customize_input_type_list(std::vector<input_type_entry> &typelist)
-{
+}{
+#if 0
 	input_item_id mameid_code;
 	input_code ui_code;
 	const char* uimode;
@@ -253,6 +254,7 @@ void sdl_osd_interface::customize_input_type_list(std::vector<input_type_entry> 
 			break;
 		}
 	}
+#endif
 }
 
 void sdl_osd_interface::poll_inputs(running_machine &machine)
