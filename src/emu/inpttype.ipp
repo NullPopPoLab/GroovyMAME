@@ -900,7 +900,8 @@ namespace {
 		INPUT_PORT_DIGITAL_TYPE( 0, UI,       UI_FOCUS_NEXT,        N_p("input-name", "UI Focus Next"),          input_seq(KEYCODE_TAB, input_seq::not_code, KEYCODE_LSHIFT, input_seq::not_code, KEYCODE_RSHIFT) ) \
 		INPUT_PORT_DIGITAL_TYPE( 0, UI,       UI_FOCUS_PREV,        N_p("input-name", "UI Focus Previous"),      input_seq(KEYCODE_TAB, KEYCODE_LSHIFT, input_seq::or_code, KEYCODE_TAB, KEYCODE_RSHIFT) ) \
 		INPUT_PORT_DIGITAL_TYPE( 0, UI,       UI_SELECT,            N_p("input-name", "UI Select"),              input_seq(KEYCODE_ENTER, input_seq::not_code, KEYCODE_LALT, input_seq::not_code, KEYCODE_RALT, input_seq::or_code, JOYCODE_BUTTON1_INDEXED(0), input_seq::or_code, KEYCODE_ENTER_PAD) ) \
-		INPUT_PORT_DIGITAL_TYPE( 0, UI,       UI_CANCEL,            N_p("input-name", "UI Cancel"),              input_seq(KEYCODE_ESC) ) \
+		INPUT_PORT_DIGITAL_TYPE( 0, UI,       UI_CANCEL,            N_p("input-name", "UI Cancel"),              input_seq(KEYCODE_ESC, input_seq::not_code, KEYCODE_LALT, input_seq::not_code, KEYCODE_RALT) ) \
+		INPUT_PORT_DIGITAL_TYPE( 0, UI,       UI_EXIT_GAME,         N_p("input-name", "UI Exit Game"),           input_seq(KEYCODE_ESC, KEYCODE_LALT, input_seq::or_code, KEYCODE_ESC, KEYCODE_RALT) ) \
 		INPUT_PORT_DIGITAL_TYPE( 0, UI,       UI_DISPLAY_COMMENT,   N_p("input-name", "UI Display Comment"),     input_seq(KEYCODE_SPACE) ) \
 		INPUT_PORT_DIGITAL_TYPE( 0, UI,       UI_CLEAR,             N_p("input-name", "UI Clear"),               input_seq(KEYCODE_DEL) ) \
 		INPUT_PORT_DIGITAL_TYPE( 0, UI,       UI_ZOOM_IN,           N_p("input-name", "UI Zoom In"),             input_seq(KEYCODE_EQUALS) ) \
