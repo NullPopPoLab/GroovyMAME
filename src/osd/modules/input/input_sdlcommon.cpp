@@ -141,10 +141,10 @@ void sdl_event_manager::process_window_event(running_machine &machine, SDL_Event
 
 void sdl_osd_interface::customize_input_type_list(std::vector<input_type_entry> &typelist)
 {
-	input_item_id mameid_code;
-	input_code ui_code;
-	const char* uimode;
-	char fullmode[64];
+//	input_item_id mameid_code;
+//	input_code ui_code;
+//	const char* uimode;
+//	char fullmode[64];
 
 	// loop over the defaults
 	for (input_type_entry &entry : typelist)
@@ -153,32 +153,32 @@ void sdl_osd_interface::customize_input_type_list(std::vector<input_type_entry> 
 		{
 			// configurable UI mode switch
 		case IPT_UI_TOGGLE_UI:
-			uimode = options().ui_mode_key();
-			if (!strcmp(uimode, "auto"))
-			{
-#if defined(__APPLE__) && defined(__MACH__)
-				mameid_code = keyboard_trans_table::instance().lookup_mame_code("ITEM_ID_INSERT");
-#else
-				mameid_code = keyboard_trans_table::instance().lookup_mame_code("ITEM_ID_SCRLOCK");
-#endif
-			}
-			else
-			{
-				snprintf(fullmode, 63, "ITEM_ID_%s", uimode);
-				mameid_code = keyboard_trans_table::instance().lookup_mame_code(fullmode);
-			}
-			ui_code = input_code(DEVICE_CLASS_KEYBOARD, 0, ITEM_CLASS_SWITCH, ITEM_MODIFIER_NONE, input_item_id(mameid_code));
-			entry.defseq(SEQ_TYPE_STANDARD).set(ui_code);
+//			uimode = options().ui_mode_key();
+//			if (!strcmp(uimode, "auto"))
+//			{
+//#if defined(__APPLE__) && defined(__MACH__)
+//				mameid_code = keyboard_trans_table::instance().lookup_mame_code("ITEM_ID_INSERT");
+//#else
+//				mameid_code = keyboard_trans_table::instance().lookup_mame_code("ITEM_ID_SCRLOCK");
+//#endif
+//			}
+//			else
+//			{
+//				snprintf(fullmode, 63, "ITEM_ID_%s", uimode);
+//				mameid_code = keyboard_trans_table::instance().lookup_mame_code(fullmode);
+//			}
+//			ui_code = input_code(DEVICE_CLASS_KEYBOARD, 0, ITEM_CLASS_SWITCH, ITEM_MODIFIER_NONE, input_item_id(mameid_code));
+//			entry.defseq(SEQ_TYPE_STANDARD).set(ui_code);
 			break;
 			// alt-enter for fullscreen
 		case IPT_OSD_1:
-			entry.configure_osd("TOGGLE_FULLSCREEN", N_p("input-name", "Toggle Fullscreen"));
-			entry.defseq(SEQ_TYPE_STANDARD).set(KEYCODE_ENTER, KEYCODE_LALT);
+//			entry.configure_osd("TOGGLE_FULLSCREEN", N_p("input-name", "Toggle Fullscreen"));
+//			entry.defseq(SEQ_TYPE_STANDARD).set(KEYCODE_ENTER, KEYCODE_LALT);
 			break;
 
 			// page down for fastforward (must be OSD_3 as per src/emu/ui.c)
 		case IPT_UI_FAST_FORWARD:
-			entry.defseq(SEQ_TYPE_STANDARD).set(KEYCODE_PGDN);
+//			entry.defseq(SEQ_TYPE_STANDARD).set(KEYCODE_PGDN);
 			break;
 
 			// OSD hotkeys use LCTRL and start at F3, they start at
@@ -188,56 +188,56 @@ void sdl_osd_interface::customize_input_type_list(std::vector<input_type_entry> 
 
 			// add a Not lcrtl condition to the reset key
 		case IPT_UI_SOFT_RESET:
-			entry.defseq(SEQ_TYPE_STANDARD).set(KEYCODE_F3, input_seq::not_code, KEYCODE_LCONTROL, input_seq::not_code, KEYCODE_LSHIFT);
+//			entry.defseq(SEQ_TYPE_STANDARD).set(KEYCODE_F3, input_seq::not_code, KEYCODE_LCONTROL, input_seq::not_code, KEYCODE_LSHIFT);
 			break;
 
 			// add a Not lcrtl condition to the show gfx key
 		case IPT_UI_SHOW_GFX:
-			entry.defseq(SEQ_TYPE_STANDARD).set(KEYCODE_F4, input_seq::not_code, KEYCODE_LCONTROL);
+//			entry.defseq(SEQ_TYPE_STANDARD).set(KEYCODE_F4, input_seq::not_code, KEYCODE_LCONTROL);
 			break;
 
 			// LCTRL-F5 to toggle OpenGL filtering
 		case IPT_OSD_5:
-			entry.configure_osd("TOGGLE_FILTER", N_p("input-name", "Toggle Filter"));
-			entry.defseq(SEQ_TYPE_STANDARD).set(KEYCODE_F5, KEYCODE_LCONTROL);
+//			entry.configure_osd("TOGGLE_FILTER", N_p("input-name", "Toggle Filter"));
+//			entry.defseq(SEQ_TYPE_STANDARD).set(KEYCODE_F5, KEYCODE_LCONTROL);
 			break;
 
 			// LCTRL-F6 to decrease OpenGL prescaling
 		case IPT_OSD_6:
-			entry.configure_osd("DECREASE_PRESCALE", N_p("input-name", "Decrease Prescaling"));
-			entry.defseq(SEQ_TYPE_STANDARD).set(KEYCODE_F6, KEYCODE_LCONTROL);
+//			entry.configure_osd("DECREASE_PRESCALE", N_p("input-name", "Decrease Prescaling"));
+//			entry.defseq(SEQ_TYPE_STANDARD).set(KEYCODE_F6, KEYCODE_LCONTROL);
 			break;
 			// add a Not lcrtl condition to the toggle cheat key
 		case IPT_UI_TOGGLE_CHEAT:
-			entry.defseq(SEQ_TYPE_STANDARD).set(KEYCODE_F6, input_seq::not_code, KEYCODE_LCONTROL);
+//			entry.defseq(SEQ_TYPE_STANDARD).set(KEYCODE_F6, input_seq::not_code, KEYCODE_LCONTROL);
 			break;
 
 			// LCTRL-F7 to increase OpenGL prescaling
 		case IPT_OSD_7:
-			entry.configure_osd("INCREASE_PRESCALE", N_p("input-name", "Increase Prescaling"));
-			entry.defseq(SEQ_TYPE_STANDARD).set(KEYCODE_F7, KEYCODE_LCONTROL);
+//			entry.configure_osd("INCREASE_PRESCALE", N_p("input-name", "Increase Prescaling"));
+//			entry.defseq(SEQ_TYPE_STANDARD).set(KEYCODE_F7, KEYCODE_LCONTROL);
 			break;
 
 		// lshift-lalt-F12 for fullscreen video (BGFX)
 		case IPT_OSD_8:
-			entry.configure_osd("RENDER_AVI", N_p("input-name", "Record Rendered Video"));
-			entry.defseq(SEQ_TYPE_STANDARD).set(KEYCODE_F12, KEYCODE_LSHIFT, KEYCODE_LALT);
+//			entry.configure_osd("RENDER_AVI", N_p("input-name", "Record Rendered Video"));
+//			entry.defseq(SEQ_TYPE_STANDARD).set(KEYCODE_F12, KEYCODE_LSHIFT, KEYCODE_LALT);
 			break;
 
 		// add a Not lcrtl condition to the load state key
 		case IPT_UI_LOAD_STATE:
-			entry.defseq(SEQ_TYPE_STANDARD).set(KEYCODE_F7, input_seq::not_code, KEYCODE_LCONTROL, input_seq::not_code, KEYCODE_LSHIFT);
+//			entry.defseq(SEQ_TYPE_STANDARD).set(KEYCODE_F7, input_seq::not_code, KEYCODE_LCONTROL, input_seq::not_code, KEYCODE_LSHIFT);
 			break;
 
 			// add a Not lcrtl condition to the throttle key
 		case IPT_UI_THROTTLE:
-			entry.defseq(SEQ_TYPE_STANDARD).set(KEYCODE_F10, input_seq::not_code, KEYCODE_LCONTROL);
+//			entry.defseq(SEQ_TYPE_STANDARD).set(KEYCODE_F10, input_seq::not_code, KEYCODE_LCONTROL);
 			break;
 
 			// disable the config menu if the ALT key is down
 			// (allows ALT-TAB to switch between apps)
 		case IPT_UI_CONFIGURE:
-			entry.defseq(SEQ_TYPE_STANDARD).set(KEYCODE_TAB, input_seq::not_code, KEYCODE_LALT, input_seq::not_code, KEYCODE_RALT);
+//			entry.defseq(SEQ_TYPE_STANDARD).set(KEYCODE_TAB, input_seq::not_code, KEYCODE_LALT, input_seq::not_code, KEYCODE_RALT);
 			break;
 
 #if defined(__APPLE__) && defined(__MACH__)
