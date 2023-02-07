@@ -1027,7 +1027,7 @@ public:
 			devinfo.device()->add_item(Buttons_Name[RETROPAD_START], ITEM_ID_START,
 				generic_button_get_state<std::int32_t>, &joystate[i].button[RETROPAD_START]);
 
-			devinfo.device()->add_item(Buttons_Name[RETROPAD_SELECT], ITEM_ID_COIN,
+			devinfo.device()->add_item(Buttons_Name[RETROPAD_SELECT], ITEM_ID_SELECT,
 				generic_button_get_state<std::int32_t>, &joystate[i].button[RETROPAD_SELECT]);
 
 			devinfo.device()->add_item(Buttons_Name[RETROPAD_MENU], ITEM_ID_MENUBTN,
