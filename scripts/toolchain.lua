@@ -146,7 +146,11 @@ function toolchain(_buildDir, _subDir)
 				premake.gcc.cc   = "@gcc -V 4.2"
 				premake.gcc.cxx  = "@g++-4.2"
 			end
-			premake.gcc.ar  = "ar"
+			if _OPTIONS["AR"]~=nil then
+				premake.gcc.ar = _OPTIONS["AR"]
+			else
+				premake.gcc.ar  = "ar"
+			end
 			location (_buildDir .. "projects/" .. _subDir .. "/".. _ACTION .. "-linux")
 		end
 
@@ -356,6 +360,18 @@ function toolchain(_buildDir, _subDir)
 
 	configuration { "linux-gcc", "x64", "Debug" }
 		targetdir (_buildDir .. "linux_gcc" .. "/bin/x64/Debug")
+
+	configuration { "linux-gcc", "arm64" }
+		objdir (_buildDir .. "linux_gcc" .. "/obj")
+		buildoptions {
+			"",
+		}
+
+	configuration { "linux-gcc", "arm64", "Release" }
+		targetdir (_buildDir .. "linux_gcc" .. "/bin/arm64/Release")
+
+	configuration { "linux-gcc", "arm64", "Debug" }
+		targetdir (_buildDir .. "linux_gcc" .. "/bin/arm64/Debug")
 
 	configuration { "linux-clang", "x32" }
 		objdir (_buildDir .. "linux_clang" .. "/obj")
@@ -603,6 +619,11 @@ function toolchain(_buildDir, _subDir)
 	configuration { "osx*", "arm64", "Debug" }
 		targetdir (_buildDir .. "osx_clang" .. "/bin/x64/Debug")
 
+	configuration { "linux-*" }
+		flags {
+			"NoPCH",
+		}
+
 	configuration {} -- reset configuration
 
 	return true
@@ -626,10 +647,17 @@ function strip()
 		}
 
 	configuration { "linux-*" }
+		if _OPTIONS['STRIP']~=nil then
+		postbuildcommands {
+			"$(SILENT) echo Stripping symbols.",
+			"$(SILENT) " .. _OPTIONS['STRIP'] .. " -s \"$(TARGET)\""
+		}
+	else
 		postbuildcommands {
 			"$(SILENT) echo Stripping symbols.",
 			"$(SILENT) strip -s \"$(TARGET)\""
 		}
+	end
 
 	configuration { "mingw*", "x64" }
 		postbuildcommands {

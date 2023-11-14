@@ -1369,8 +1369,13 @@ end
 		MAME_DIR .. "3rdparty/bx/include",
 		MAME_DIR .. "3rdparty/bimg/include",
 		MAME_DIR .. "3rdparty/bgfx/3rdparty/directx-headers/include/directx",
-		MAME_DIR .. "3rdparty/bgfx/3rdparty/khronos",
 	}
+
+	if not _OPTIONS["NO_USE_BGFX_KHRONOS"] then
+		includedirs {
+			MAME_DIR .. "3rdparty/bgfx/3rdparty/khronos",
+		}
+	end
 
 	configuration { "android-*"}
 		buildoptions {
