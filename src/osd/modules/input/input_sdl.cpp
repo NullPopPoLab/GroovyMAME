@@ -1529,8 +1529,6 @@ public:
 
 		// add buttons with fixed item IDs
 		std::pair<SDL_GameControllerButton, input_item_id> const fixedbuttons[]{
-				{ SDL_CONTROLLER_BUTTON_BACK,       ITEM_ID_SELECT },
-				{ SDL_CONTROLLER_BUTTON_START,      ITEM_ID_START },
 				{ SDL_CONTROLLER_BUTTON_DPAD_UP,    ITEM_ID_HAT1UP },
 				{ SDL_CONTROLLER_BUTTON_DPAD_DOWN,  ITEM_ID_HAT1DOWN },
 				{ SDL_CONTROLLER_BUTTON_DPAD_LEFT,  ITEM_ID_HAT1LEFT },
