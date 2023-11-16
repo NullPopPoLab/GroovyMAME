@@ -29,7 +29,8 @@
 	|| BX_PLATFORM_NX         \
 	|| BX_PLATFORM_OSX        \
 	|| BX_PLATFORM_PS4        \
-	|| BX_PLATFORM_RPI
+	|| BX_PLATFORM_RPI		  \
+	|| BX_PLATFORM_LINUX_NO_GL
 #	include <sched.h> // sched_yield
 #	if BX_PLATFORM_BSD       \
 	|| BX_PLATFORM_HAIKU     \
@@ -47,7 +48,8 @@
 #	if BX_PLATFORM_ANDROID
 #		include <malloc.h> // mallinfo
 #	elif   BX_PLATFORM_LINUX     \
-		|| BX_PLATFORM_RPI
+		|| BX_PLATFORM_RPI       \
+		|| BX_PLATFORM_LINUX_NO_GL
 #		include <stdio.h>  // fopen
 #		include <unistd.h> // syscall
 #		include <sys/syscall.h>
@@ -100,7 +102,8 @@ namespace bx
 #if BX_PLATFORM_WINDOWS
 		return ::GetCurrentThreadId();
 #elif  BX_PLATFORM_LINUX \
-	|| BX_PLATFORM_RPI
+	|| BX_PLATFORM_RPI	 \
+	|| BX_PLATFORM_LINUX_NO_GL
 		return (pid_t)::syscall(SYS_gettid);
 #elif  BX_PLATFORM_IOS \
 	|| BX_PLATFORM_OSX
@@ -121,7 +124,8 @@ namespace bx
 		struct mallinfo mi = mallinfo();
 		return mi.uordblks;
 #elif  BX_PLATFORM_LINUX \
-	|| BX_PLATFORM_HURD
+	|| BX_PLATFORM_HURD	 \
+	|| BX_PLATFORM_LINUX_NO_GL
 		FILE* file = fopen("/proc/self/statm", "r");
 		if (NULL == file)
 		{
@@ -321,7 +325,8 @@ namespace bx
 	void* exec(const char* const* _argv)
 	{
 #if BX_PLATFORM_LINUX \
- || BX_PLATFORM_HURD
+ || BX_PLATFORM_HURD  \
+ || BX_PLATFORM_LINUX_NO_GL
 		pid_t pid = fork();
 
 		if (0 == pid)

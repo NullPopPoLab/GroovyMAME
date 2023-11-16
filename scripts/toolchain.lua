@@ -755,6 +755,10 @@ function toolchain(_buildDir, _subDir)
 			"NoPCH",
 		}
 
+		flags {
+			"NoPCH",
+		}
+
 		-- libretro only supports the retro OSD
 		_OPTIONS["osd"] = "retro"
 

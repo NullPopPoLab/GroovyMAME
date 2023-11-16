@@ -386,14 +386,14 @@ ifndef FORCE_DRC_C_BACKEND
 endif
 endif
 
-ifeq ($(findstring arm,$(UNAME)),arm)
+ifeq ($(findstring arm,$(PLATFORM)),arm)
 ARCHITECTURE :=
 ifndef FORCE_DRC_C_BACKEND
 	FORCE_DRC_C_BACKEND := 1
 endif
 endif
 
-ifeq ($(findstring aarch64,$(UNAME)),aarch64)
+ifeq ($(findstring aarch64,$(PLATFORM)),aarch64)
 ARCHITECTURE :=
 ifndef FORCE_DRC_C_BACKEND
 	FORCE_DRC_C_BACKEND := 1
