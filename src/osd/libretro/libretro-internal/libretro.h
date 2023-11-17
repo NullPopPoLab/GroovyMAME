@@ -472,6 +472,42 @@ enum retro_key
    RETROK_UNDO           = 322,
    RETROK_OEM_102        = 323,
 
+   RETROK_CANCEL         = 324, /* for MSX */
+   RETROK_EXEC           = 325, /* for MSX,PC88 */
+   RETROK_CODE           = 326, /* for X68 */
+   RETROK_CONVERT        = 327, /* for PC88 */
+   RETROK_PC             = 328, /* for PC88 */
+   RETROK_KANA           = 329, /* for MSX,PC98,X68 */
+   RETROK_KP_COMMA       = 330, /* for PC98,X68 */
+   RETROK_ROMAN          = 331, /* for X68 */
+   RETROK_COPY           = 332, /* for X68 */
+   RETROK_HIRAGANA       = 333, /* for X68 */
+   RETROK_ZENKAKU        = 334, /* for X68 */
+
+   RETROK_KP789          = 376, /* for Joy2NumPad */
+   RETROK_KP123          = 377, /* for Joy2NumPad */
+   RETROK_KP147          = 378, /* for Joy2NumPad */
+   RETROK_KP369          = 379, /* for Joy2NumPad */
+
+   RETROK_JOYPAD_UP      = 380,
+   RETROK_JOYPAD_DOWN    = 381,
+   RETROK_JOYPAD_LEFT    = 382,
+   RETROK_JOYPAD_RIGHT   = 383,
+   RETROK_JOYPAD_1       = 384,
+   RETROK_JOYPAD_2       = 385,
+   RETROK_JOYPAD_3       = 386,
+   RETROK_JOYPAD_4       = 387,
+   RETROK_JOYPAD_5       = 388,
+   RETROK_JOYPAD_6       = 389,
+   RETROK_JOYPAD_7       = 390,
+   RETROK_JOYPAD_8       = 391,
+
+   RETROK_MOUSE_1        = 395,
+   RETROK_MOUSE_2        = 396,
+   RETROK_MOUSE_3        = 397,
+   RETROK_MOUSE_4        = 398,
+   RETROK_MOUSE_5        = 399,
+
    RETROK_LAST,
 
    RETROK_DUMMY          = INT_MAX /* Ensure sizeof(enum) == sizeof(int) */
@@ -803,6 +839,7 @@ enum retro_mod
                                             * and it's up to the implementation to find a suitable directory.
                                             */
 #define RETRO_ENVIRONMENT_GET_SAVE_DIRECTORY 31
+#define RETRO_ENVIRONMENT_GET_SYSTEM_SAVE_DIRECTORY 31
                                            /* const char ** --
                                             * Returns the "save" directory of the frontend, unless there is no
                                             * save directory available. The save directory should be used to
@@ -1848,6 +1885,21 @@ enum retro_mod
                                             * Note that this environment call describes the power state for the entire device,
                                             * not for individual peripherals like controllers.
                                             */
+
+#define RETRO_ENVIRONMENT_SET_DISK_CONTROL_EXT2_INTERFACE (RETRO_ENVIRONMENT_EXPERIMENTAL|0x9876)
+                                           /* const struct retro_disk_control_ext2_callback * --
+                                            * Sets an interface which frontend can use to eject and insert
+                                            * disk images, and also obtain information about individual
+                                            * disk image files registered by the core.
+                                            * This is used for games which consist of multiple images and
+                                            * must be manually swapped out by the user (e.g. PSX, floppy disk
+                                            * based systems).
+                                            */
+
+#define RETRO_ENVIRONMENT_GET_ROOT_SAVE_DIRECTORY (RETRO_ENVIRONMENT_EXPERIMENTAL|0x9877)
+#define RETRO_ENVIRONMENT_GET_GROUP_SAVE_DIRECTORY (RETRO_ENVIRONMENT_EXPERIMENTAL|0x9878)
+#define RETRO_ENVIRONMENT_GET_GAME_SAVE_DIRECTORY (RETRO_ENVIRONMENT_EXPERIMENTAL|0x9879)
+#define RETRO_ENVIRONMENT_GET_BOOT_SAVE_DIRECTORY (RETRO_ENVIRONMENT_EXPERIMENTAL|0x987a)
 
 /* VFS functionality */
 
@@ -4294,7 +4346,7 @@ typedef void (RETRO_CALLCONV *retro_input_poll_t)(void);
  * have been set with retro_set_controller_port_device()
  * will still use the higher level RETRO_DEVICE_JOYPAD to request input.
  */
-typedef int16_t (RETRO_CALLCONV *retro_input_state_t)(unsigned port, unsigned device,
+typedef int32_t (RETRO_CALLCONV *retro_input_state_t)(unsigned port, unsigned device,
       unsigned index, unsigned id);
 
 /* Sets callbacks. retro_set_environment() is guaranteed to be called

@@ -49,24 +49,39 @@ unsigned lightgun_count = 0;
 
 enum
 {
-	SWITCH_B,           // button bits
+	SWITCH_C,           // button bits
+	SWITCH_B,
 	SWITCH_A,
+	SWITCH_Z,
 	SWITCH_Y,
 	SWITCH_X,
 	SWITCH_L1,
 	SWITCH_R1,
-	SWITCH_L3,
-	SWITCH_R3,
+	SWITCH_L2,
+	SWITCH_R2,
+	SWITCH_L4,
+	SWITCH_R4,
+	SWITCH_L5,
+	SWITCH_R5,
+	SWITCH_G1,
+	SWITCH_G2,
+	SWITCH_G3,
+	SWITCH_G4,
+	SWITCH_G5,
+	SWITCH_G6,
+	SWITCH_G7,
+	SWITCH_G8,
+
 	SWITCH_START,
-	SWITCH_SELECT,
+	SWITCH_COIN,
+	SWITCH_CLEAR,
+	SWITCH_BACK,
+	SWITCH_MENU,
 
 	SWITCH_DPAD_UP,     // D-pad bits
 	SWITCH_DPAD_DOWN,
 	SWITCH_DPAD_LEFT,
 	SWITCH_DPAD_RIGHT,
-
-	SWITCH_L2,          // for arcade stick/pad with LT/RT buttons
-	SWITCH_R2,
 
 	SWITCH_TOTAL
 };
@@ -197,33 +212,65 @@ kt_table const ktable[] = {
 
 const char *Buttons_Name[RETRO_MAX_BUTTONS] =
 {
-	"B",           //0
-	"Y",           //1
-	"SELECT",      //2
-	"START",       //3
+	"Button 2",    //0
+	"Button 5",    //1
+	"Coin",        //2
+	"Start",       //3
 	"D-Pad Up",    //4
 	"D-Pad Down",  //5
 	"D-Pad Left",  //6
 	"D-Pad Right", //7
-	"A",           //8
-	"X",           //9
-	"L1",          //10
-	"R1",          //11
-	"L2",          //12
-	"R2",          //13
-	"L3",          //14
-	"R3",          //15
+	"Button 3",    //8
+	"Button 6",    //9
+	"Button 7",    //10
+	"Button 8",    //11
+	"Button 9",    //12
+	"Button 10",   //13
+	"Clear",       //14
+	"Cancel",      //15
+	"Button 1",
+	"Button 4",
+	"Menu",
+	"Opt",
+	"Button 11",
+	"Button 12",
+	"Button 13",
+	"Button 14",
+	"Button 15",
+	"Button 16",
+	"Button 17",
+	"Button 18",
+	"Button 19",
+	"Button 20",
+	"Button 21",
+	"Button 22",
 };
 
-//    Default : B ->B1 | A ->B2 | Y ->B3 | X ->B4 | L ->B5 | R ->B6
+//    Default
 int Buttons_mapping[] =
 {
+   RETROPAD_C,
    RETROPAD_B,
    RETROPAD_A,
+   RETROPAD_Z,
    RETROPAD_Y,
    RETROPAD_X,
    RETROPAD_L,
-   RETROPAD_R
+   RETROPAD_R,
+   RETROPAD_L2,
+   RETROPAD_R2,
+   RETROPAD_L4,
+   RETROPAD_R4,
+   RETROPAD_L5,
+   RETROPAD_R5,
+   RETROPAD_G1,
+   RETROPAD_G2,
+   RETROPAD_G3,
+   RETROPAD_G4,
+   RETROPAD_G5,
+   RETROPAD_G6,
+   RETROPAD_G7,
+   RETROPAD_G8,
 };
 
 void Input_Binding(running_machine &machine)
@@ -235,6 +282,7 @@ void Input_Binding(running_machine &machine)
    log_cb(RETRO_LOG_INFO, "YEAR: %s\n", machine.system().year);
    log_cb(RETRO_LOG_INFO, "MANUFACTURER: %s\n", machine.system().manufacturer);
 
+#if 0
    Buttons_mapping[0]=RETROPAD_B;
    Buttons_mapping[1]=RETROPAD_A;
    Buttons_mapping[2]=RETROPAD_Y;
@@ -584,6 +632,7 @@ void Input_Binding(running_machine &machine)
       Buttons_mapping[5]=RETROPAD_R;
 
    }
+#endif
 }
 
 
@@ -648,7 +697,7 @@ void retro_osd_interface::process_joypad_state(running_machine &machine)
 {
    unsigned i, j;
    int analog_l2, analog_r2;
-   int16_t ret[8];
+   int32_t ret[8];
 
    if (libretro_supports_bitmasks)
    {
@@ -1161,7 +1210,7 @@ public:
 			generic_axis_get_state<std::int32_t>,
 			&joystate[joy_count].a3[1]);
 
-		for (int j = 0; j < 6; j++)
+		for (int j = 0; j < 22; j++)
 		{
 			switch_ids[j] = device.add_item(
 				Buttons_Name[Buttons_mapping[j]],
@@ -1181,45 +1230,37 @@ public:
 			&joystate[joy_count].button[RETROPAD_START]);
 		add_button_assignment(assignments, IPT_START, { switch_ids[SWITCH_START] });
 
-		switch_ids[SWITCH_SELECT] = device.add_item(
+		switch_ids[SWITCH_COIN] = device.add_item(
 			Buttons_Name[RETROPAD_SELECT],
 			std::string_view(),
 			ITEM_ID_SELECT,
 			generic_button_get_state<std::int32_t>,
 			&joystate[joy_count].button[RETROPAD_SELECT]);
-		add_button_assignment(assignments, IPT_SELECT, { switch_ids[SWITCH_SELECT] });
+		add_button_assignment(assignments, IPT_SELECT, { switch_ids[SWITCH_COIN] });
 
-		switch_ids[SWITCH_L2] = device.add_item(
-			Buttons_Name[RETROPAD_L2],
+		switch_ids[SWITCH_MENU] = device.add_item(
+			Buttons_Name[RETROPAD_MENU],
 			std::string_view(),
-			ITEM_ID_BUTTON7,
+			ITEM_ID_MENUBTN,
 			generic_button_get_state<std::int32_t>,
-			&joystate[joy_count].button[RETROPAD_L2]);
-		add_button_assignment(assignments, ioport_type(IPT_BUTTON7), { switch_ids[SWITCH_L2] });
+			&joystate[joy_count].button[RETROPAD_MENU]);
+		add_button_assignment(assignments, IPT_UI_MENU, { switch_ids[SWITCH_MENU] });
 
-		switch_ids[SWITCH_R2] = device.add_item(
-			Buttons_Name[RETROPAD_R2],
-			std::string_view(),
-			ITEM_ID_BUTTON8,
-			generic_button_get_state<std::int32_t>,
-			&joystate[joy_count].button[RETROPAD_R2]);
-		add_button_assignment(assignments, ioport_type(IPT_BUTTON8), { switch_ids[SWITCH_R2] });
-
-		switch_ids[SWITCH_L3] = device.add_item(
+		switch_ids[SWITCH_CLEAR] = device.add_item(
 			Buttons_Name[RETROPAD_L3],
 			std::string_view(),
-			ITEM_ID_BUTTON9,
+			ITEM_ID_CLEARBTN,
 			generic_button_get_state<std::int32_t>,
 			&joystate[joy_count].button[RETROPAD_L3]);
-		add_button_assignment(assignments, IPT_BUTTON9, { switch_ids[SWITCH_L3] });
+		add_button_assignment(assignments, ioport_type(IPT_UI_CLEAR), { switch_ids[SWITCH_CLEAR] });
 
-		switch_ids[SWITCH_R3] = device.add_item(
+		switch_ids[SWITCH_BACK] = device.add_item(
 			Buttons_Name[RETROPAD_R3],
 			std::string_view(),
-			ITEM_ID_BUTTON10,
+			ITEM_ID_BACKBTN,
 			generic_button_get_state<std::int32_t>,
 			&joystate[joy_count].button[RETROPAD_R3]);
-		add_button_assignment(assignments, IPT_BUTTON10, { switch_ids[SWITCH_R3] });
+		add_button_assignment(assignments, ioport_type(IPT_UI_BACK), { switch_ids[SWITCH_BACK] });
 
 		// d-pad
 		switch_ids[SWITCH_DPAD_UP] = device.add_item(

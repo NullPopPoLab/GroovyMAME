@@ -353,6 +353,7 @@ void retro_osd_interface::init(running_machine &machine)
 //============================================================
 void retro_osd_interface::customize_input_type_list(std::vector<input_type_entry> &typelist)
 {
+#if 0
 	// This function is called on startup, before reading the
 	// configuration from disk. Scan the list, and change the
 	// default control mappings you want. It is quite possible
@@ -376,5 +377,5 @@ void retro_osd_interface::customize_input_type_list(std::vector<input_type_entry
 			default:
 				break;
 		}
-
+#endif
 }
