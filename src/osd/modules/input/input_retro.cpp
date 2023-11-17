@@ -72,6 +72,8 @@ enum
 	SWITCH_G7,
 	SWITCH_G8,
 
+	SWITCH_L3,
+	SWITCH_R3,
 	SWITCH_START,
 	SWITCH_COIN,
 	SWITCH_CLEAR,
@@ -1356,17 +1358,15 @@ public:
 				input_seq(make_code(ITEM_CLASS_SWITCH, ITEM_MODIFIER_NONE, switch_ids[SWITCH_A])));
 
 		// UI assignments
-		add_button_assignment(assignments, IPT_UI_SELECT, { switch_ids[SWITCH_START] });
 		add_button_assignment(assignments, IPT_UI_SELECT, { switch_ids[SWITCH_B] });
-		add_button_assignment(assignments, IPT_UI_BACK, { switch_ids[SWITCH_A] });
-		add_button_assignment(assignments, IPT_UI_CLEAR, { switch_ids[SWITCH_Y] });
-		add_button_assignment(assignments, IPT_UI_FOCUS_NEXT, { switch_ids[SWITCH_X] });
+		add_button_assignment(assignments, IPT_UI_BACK, { switch_ids[SWITCH_R3] });
+		add_button_assignment(assignments, IPT_UI_CLEAR, { switch_ids[SWITCH_L3] });
 		add_button_assignment(assignments, IPT_UI_PAGE_UP, { switch_ids[SWITCH_L1] });
 		add_button_assignment(assignments, IPT_UI_PAGE_DOWN, { switch_ids[SWITCH_R1] });
-		add_button_assignment(assignments, IPT_UI_FOCUS_NEXT, { switch_ids[SWITCH_L2] });
-		add_button_assignment(assignments, IPT_UI_FOCUS_PREV, { switch_ids[SWITCH_R2] });
-		add_button_assignment(assignments, IPT_UI_HOME, { switch_ids[SWITCH_L3] });
-		add_button_assignment(assignments, IPT_UI_END, { switch_ids[SWITCH_R3] });
+		add_button_assignment(assignments, IPT_UI_FOCUS_NEXT, { switch_ids[SWITCH_X] });
+		add_button_assignment(assignments, IPT_UI_FOCUS_PREV, { switch_ids[SWITCH_Y] });
+		add_button_assignment(assignments, IPT_UI_HOME, { switch_ids[SWITCH_L1] });
+		add_button_assignment(assignments, IPT_UI_END, { switch_ids[SWITCH_L2] });
 
 		// set default assignments
 		device.set_default_assignments(std::move(assignments));
