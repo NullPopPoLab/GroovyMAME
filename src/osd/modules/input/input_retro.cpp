@@ -79,6 +79,7 @@ enum
 	SWITCH_CLEAR,
 	SWITCH_BACK,
 	SWITCH_MENU,
+	SWITCH_OPT,
 
 	SWITCH_DPAD_UP,     // D-pad bits
 	SWITCH_DPAD_DOWN,
@@ -1263,6 +1264,13 @@ public:
 			generic_button_get_state<std::int32_t>,
 			&joystate[joy_count].button[RETROPAD_R3]);
 		add_button_assignment(assignments, ioport_type(IPT_UI_BACK), { switch_ids[SWITCH_BACK] });
+
+		switch_ids[SWITCH_OPT] = device.add_item(
+			Buttons_Name[RETROPAD_OPT],
+			std::string_view(),
+			ITEM_ID_OPTBTN,
+			generic_button_get_state<std::int32_t>,
+			&joystate[joy_count].button[RETROPAD_OPT]);
 
 		// d-pad
 		switch_ids[SWITCH_DPAD_UP] = device.add_item(

@@ -285,6 +285,7 @@ const code_string_table itemid_token_table[] =
 	{ ITEM_ID_MENUBTN,       "MENUBTN" },
 	{ ITEM_ID_CLEARBTN,      "CLEARBTN" },
 	{ ITEM_ID_BACKBTN,       "BACKBTN" },
+	{ ITEM_ID_OPTBTN,        "OPTBTN" },
 
 	// Hats
 	{ ITEM_ID_HAT1UP,        "HAT1UP" },
