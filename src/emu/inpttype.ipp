@@ -86,16 +86,16 @@ namespace {
 
 #define CORE_INPUT_TYPES_P1_HANAFUDA \
 		CORE_INPUT_TYPES_BEGIN(p1_hanafuda) \
-		INPUT_PORT_DIGITAL_TYPE(  1, PLAYER1,  HANAFUDA_A,          N_p("input-name", "%p Hanafuda A/1"),        input_seq(KEYCODE_A_INDEXED(0)) ) \
-		INPUT_PORT_DIGITAL_TYPE(  1, PLAYER1,  HANAFUDA_B,          N_p("input-name", "%p Hanafuda B/2"),        input_seq(KEYCODE_B_INDEXED(0)) ) \
-		INPUT_PORT_DIGITAL_TYPE(  1, PLAYER1,  HANAFUDA_C,          N_p("input-name", "%p Hanafuda C/3"),        input_seq(KEYCODE_C_INDEXED(0)) ) \
-		INPUT_PORT_DIGITAL_TYPE(  1, PLAYER1,  HANAFUDA_D,          N_p("input-name", "%p Hanafuda D/4"),        input_seq(KEYCODE_D_INDEXED(0)) ) \
-		INPUT_PORT_DIGITAL_TYPE(  1, PLAYER1,  HANAFUDA_E,          N_p("input-name", "%p Hanafuda E/5"),        input_seq(KEYCODE_E_INDEXED(0)) ) \
-		INPUT_PORT_DIGITAL_TYPE(  1, PLAYER1,  HANAFUDA_F,          N_p("input-name", "%p Hanafuda F/6"),        input_seq(KEYCODE_F_INDEXED(0)) ) \
-		INPUT_PORT_DIGITAL_TYPE(  1, PLAYER1,  HANAFUDA_G,          N_p("input-name", "%p Hanafuda G/7"),        input_seq(KEYCODE_G_INDEXED(0)) ) \
-		INPUT_PORT_DIGITAL_TYPE(  1, PLAYER1,  HANAFUDA_H,          N_p("input-name", "%p Hanafuda H/8"),        input_seq(KEYCODE_H_INDEXED(0)) ) \
-		INPUT_PORT_DIGITAL_TYPE(  1, PLAYER1,  HANAFUDA_YES,        N_p("input-name", "%p Hanafuda Yes"),        input_seq(KEYCODE_Y_INDEXED(0)) ) \
-		INPUT_PORT_DIGITAL_TYPE(  1, PLAYER1,  HANAFUDA_NO,         N_p("input-name", "%p Hanafuda No"),         input_seq(KEYCODE_N_INDEXED(0)) ) \
+		INPUT_PORT_DIGITAL_TYPE(  1, PLAYER1,  HANAFUDA_A,          N_p("input-name", "%p Hanafuda A/1"),        input_seq(KEYCODE_A_INDEXED(0), input_seq::or_code, KEYCODE_1_INDEXED(0)) ) \
+		INPUT_PORT_DIGITAL_TYPE(  1, PLAYER1,  HANAFUDA_B,          N_p("input-name", "%p Hanafuda B/2"),        input_seq(KEYCODE_B_INDEXED(0), input_seq::or_code, KEYCODE_2_INDEXED(0)) ) \
+		INPUT_PORT_DIGITAL_TYPE(  1, PLAYER1,  HANAFUDA_C,          N_p("input-name", "%p Hanafuda C/3"),        input_seq(KEYCODE_C_INDEXED(0), input_seq::or_code, KEYCODE_3_INDEXED(0)) ) \
+		INPUT_PORT_DIGITAL_TYPE(  1, PLAYER1,  HANAFUDA_D,          N_p("input-name", "%p Hanafuda D/4"),        input_seq(KEYCODE_D_INDEXED(0), input_seq::or_code, KEYCODE_4_INDEXED(0)) ) \
+		INPUT_PORT_DIGITAL_TYPE(  1, PLAYER1,  HANAFUDA_E,          N_p("input-name", "%p Hanafuda E/5"),        input_seq(KEYCODE_E_INDEXED(0), input_seq::or_code, KEYCODE_5_INDEXED(0)) ) \
+		INPUT_PORT_DIGITAL_TYPE(  1, PLAYER1,  HANAFUDA_F,          N_p("input-name", "%p Hanafuda F/6"),        input_seq(KEYCODE_F_INDEXED(0), input_seq::or_code, KEYCODE_6_INDEXED(0)) ) \
+		INPUT_PORT_DIGITAL_TYPE(  1, PLAYER1,  HANAFUDA_G,          N_p("input-name", "%p Hanafuda G/7"),        input_seq(KEYCODE_G_INDEXED(0), input_seq::or_code, KEYCODE_7_INDEXED(0)) ) \
+		INPUT_PORT_DIGITAL_TYPE(  1, PLAYER1,  HANAFUDA_H,          N_p("input-name", "%p Hanafuda H/8"),        input_seq(KEYCODE_H_INDEXED(0), input_seq::or_code, KEYCODE_8_INDEXED(0)) ) \
+		INPUT_PORT_DIGITAL_TYPE(  1, PLAYER1,  HANAFUDA_YES,        N_p("input-name", "%p Hanafuda Yes"),        input_seq(KEYCODE_Y_INDEXED(0), input_seq::or_code, KEYCODE_9_INDEXED(0)) ) \
+		INPUT_PORT_DIGITAL_TYPE(  1, PLAYER1,  HANAFUDA_NO,         N_p("input-name", "%p Hanafuda No"),         input_seq(KEYCODE_N_INDEXED(0), input_seq::or_code, KEYCODE_0_INDEXED(0)) ) \
 		CORE_INPUT_TYPES_END()
 
 #define CORE_INPUT_TYPES_GAMBLE \
@@ -204,16 +204,16 @@ namespace {
 
 #define CORE_INPUT_TYPES_P2_HANAFUDA \
 		CORE_INPUT_TYPES_BEGIN(p2_hanafuda) \
-		INPUT_PORT_DIGITAL_TYPE(  2, PLAYER2,  HANAFUDA_A,          N_p("input-name", "%p Hanafuda A/1"),        input_seq(KEYCODE_A_INDEXED(1)) ) \
-		INPUT_PORT_DIGITAL_TYPE(  2, PLAYER2,  HANAFUDA_B,          N_p("input-name", "%p Hanafuda B/2"),        input_seq(KEYCODE_B_INDEXED(1)) ) \
-		INPUT_PORT_DIGITAL_TYPE(  2, PLAYER2,  HANAFUDA_C,          N_p("input-name", "%p Hanafuda C/3"),        input_seq(KEYCODE_C_INDEXED(1)) ) \
-		INPUT_PORT_DIGITAL_TYPE(  2, PLAYER2,  HANAFUDA_D,          N_p("input-name", "%p Hanafuda D/4"),        input_seq(KEYCODE_D_INDEXED(1)) ) \
-		INPUT_PORT_DIGITAL_TYPE(  2, PLAYER2,  HANAFUDA_E,          N_p("input-name", "%p Hanafuda E/5"),        input_seq(KEYCODE_E_INDEXED(1)) ) \
-		INPUT_PORT_DIGITAL_TYPE(  2, PLAYER2,  HANAFUDA_F,          N_p("input-name", "%p Hanafuda F/6"),        input_seq(KEYCODE_F_INDEXED(1)) ) \
-		INPUT_PORT_DIGITAL_TYPE(  2, PLAYER2,  HANAFUDA_G,          N_p("input-name", "%p Hanafuda G/7"),        input_seq(KEYCODE_G_INDEXED(1)) ) \
-		INPUT_PORT_DIGITAL_TYPE(  2, PLAYER2,  HANAFUDA_H,          N_p("input-name", "%p Hanafuda H/8"),        input_seq(KEYCODE_H_INDEXED(1)) ) \
-		INPUT_PORT_DIGITAL_TYPE(  2, PLAYER2,  HANAFUDA_YES,        N_p("input-name", "%p Hanafuda Yes"),        input_seq(KEYCODE_Y_INDEXED(1)) ) \
-		INPUT_PORT_DIGITAL_TYPE(  2, PLAYER2,  HANAFUDA_NO,         N_p("input-name", "%p Hanafuda No"),         input_seq(KEYCODE_N_INDEXED(1)) ) \
+		INPUT_PORT_DIGITAL_TYPE(  2, PLAYER2,  HANAFUDA_A,          N_p("input-name", "%p Hanafuda A/1"),        input_seq(KEYCODE_A_INDEXED(1), input_seq::or_code, KEYCODE_1_INDEXED(1)) ) \
+		INPUT_PORT_DIGITAL_TYPE(  2, PLAYER2,  HANAFUDA_B,          N_p("input-name", "%p Hanafuda B/2"),        input_seq(KEYCODE_B_INDEXED(1), input_seq::or_code, KEYCODE_2_INDEXED(1)) ) \
+		INPUT_PORT_DIGITAL_TYPE(  2, PLAYER2,  HANAFUDA_C,          N_p("input-name", "%p Hanafuda C/3"),        input_seq(KEYCODE_C_INDEXED(1), input_seq::or_code, KEYCODE_3_INDEXED(1)) ) \
+		INPUT_PORT_DIGITAL_TYPE(  2, PLAYER2,  HANAFUDA_D,          N_p("input-name", "%p Hanafuda D/4"),        input_seq(KEYCODE_D_INDEXED(1), input_seq::or_code, KEYCODE_4_INDEXED(1)) ) \
+		INPUT_PORT_DIGITAL_TYPE(  2, PLAYER2,  HANAFUDA_E,          N_p("input-name", "%p Hanafuda E/5"),        input_seq(KEYCODE_E_INDEXED(1), input_seq::or_code, KEYCODE_5_INDEXED(1)) ) \
+		INPUT_PORT_DIGITAL_TYPE(  2, PLAYER2,  HANAFUDA_F,          N_p("input-name", "%p Hanafuda F/6"),        input_seq(KEYCODE_F_INDEXED(1), input_seq::or_code, KEYCODE_6_INDEXED(1)) ) \
+		INPUT_PORT_DIGITAL_TYPE(  2, PLAYER2,  HANAFUDA_G,          N_p("input-name", "%p Hanafuda G/7"),        input_seq(KEYCODE_G_INDEXED(1), input_seq::or_code, KEYCODE_7_INDEXED(1)) ) \
+		INPUT_PORT_DIGITAL_TYPE(  2, PLAYER2,  HANAFUDA_H,          N_p("input-name", "%p Hanafuda H/8"),        input_seq(KEYCODE_H_INDEXED(1), input_seq::or_code, KEYCODE_8_INDEXED(1)) ) \
+		INPUT_PORT_DIGITAL_TYPE(  2, PLAYER2,  HANAFUDA_YES,        N_p("input-name", "%p Hanafuda Yes"),        input_seq(KEYCODE_Y_INDEXED(1), input_seq::or_code, KEYCODE_9_INDEXED(1)) ) \
+		INPUT_PORT_DIGITAL_TYPE(  2, PLAYER2,  HANAFUDA_NO,         N_p("input-name", "%p Hanafuda No"),         input_seq(KEYCODE_N_INDEXED(1), input_seq::or_code, KEYCODE_0_INDEXED(1)) ) \
 		CORE_INPUT_TYPES_END()
 
 #define CORE_INPUT_TYPES_P3 \
@@ -556,10 +556,10 @@ namespace {
 
 #define CORE_INPUT_TYPES_START \
 		CORE_INPUT_TYPES_BEGIN(start) \
-		INPUT_PORT_DIGITAL_TYPE(  0, OTHER,    START1,              N_p("input-name", "1 Player Start"),         input_seq() ) \
-		INPUT_PORT_DIGITAL_TYPE(  0, OTHER,    START2,              N_p("input-name", "2 Players Start"),        input_seq() ) \
-		INPUT_PORT_DIGITAL_TYPE(  0, OTHER,    START3,              N_p("input-name", "3 Players Start"),        input_seq() ) \
-		INPUT_PORT_DIGITAL_TYPE(  0, OTHER,    START4,              N_p("input-name", "4 Players Start"),        input_seq() ) \
+		INPUT_PORT_DIGITAL_TYPE(  0, OTHER,    START1,              N_p("input-name", "1 Player Start"),         input_seq(JOYCODE_BUTTON14_INDEXED(0)) ) \
+		INPUT_PORT_DIGITAL_TYPE(  0, OTHER,    START2,              N_p("input-name", "2 Players Start"),        input_seq(JOYCODE_BUTTON14_INDEXED(1)) ) \
+		INPUT_PORT_DIGITAL_TYPE(  0, OTHER,    START3,              N_p("input-name", "3 Players Start"),        input_seq(JOYCODE_BUTTON14_INDEXED(2)) ) \
+		INPUT_PORT_DIGITAL_TYPE(  0, OTHER,    START4,              N_p("input-name", "4 Players Start"),        input_seq(JOYCODE_BUTTON14_INDEXED(3)) ) \
 		INPUT_PORT_DIGITAL_TYPE(  0, OTHER,    START5,              N_p("input-name", "5 Players Start"),        input_seq() ) \
 		INPUT_PORT_DIGITAL_TYPE(  0, OTHER,    START6,              N_p("input-name", "6 Players Start"),        input_seq() ) \
 		INPUT_PORT_DIGITAL_TYPE(  0, OTHER,    START7,              N_p("input-name", "7 Players Start"),        input_seq() ) \
@@ -568,10 +568,10 @@ namespace {
 
 #define CORE_INPUT_TYPES_COIN \
 		CORE_INPUT_TYPES_BEGIN(coin) \
-		INPUT_PORT_DIGITAL_TYPE(  0, OTHER,    COIN1,               N_p("input-name", "Coin 1"),                 input_seq() ) \
-		INPUT_PORT_DIGITAL_TYPE(  0, OTHER,    COIN2,               N_p("input-name", "Coin 2"),                 input_seq() ) \
-		INPUT_PORT_DIGITAL_TYPE(  0, OTHER,    COIN3,               N_p("input-name", "Coin 3"),                 input_seq() ) \
-		INPUT_PORT_DIGITAL_TYPE(  0, OTHER,    COIN4,               N_p("input-name", "Coin 4"),                 input_seq() ) \
+		INPUT_PORT_DIGITAL_TYPE(  0, OTHER,    COIN1,               N_p("input-name", "Coin 1"),                 input_seq(JOYCODE_BUTTON13_INDEXED(0)) ) \
+		INPUT_PORT_DIGITAL_TYPE(  0, OTHER,    COIN2,               N_p("input-name", "Coin 2"),                 input_seq(JOYCODE_BUTTON13_INDEXED(1)) ) \
+		INPUT_PORT_DIGITAL_TYPE(  0, OTHER,    COIN3,               N_p("input-name", "Coin 3"),                 input_seq(JOYCODE_BUTTON13_INDEXED(2)) ) \
+		INPUT_PORT_DIGITAL_TYPE(  0, OTHER,    COIN4,               N_p("input-name", "Coin 4"),                 input_seq(JOYCODE_BUTTON13_INDEXED(3)) ) \
 		INPUT_PORT_DIGITAL_TYPE(  0, OTHER,    COIN5,               N_p("input-name", "Coin 5"),                 input_seq() ) \
 		INPUT_PORT_DIGITAL_TYPE(  0, OTHER,    COIN6,               N_p("input-name", "Coin 6"),                 input_seq() ) \
 		INPUT_PORT_DIGITAL_TYPE(  0, OTHER,    COIN7,               N_p("input-name", "Coin 7"),                 input_seq() ) \
@@ -871,42 +871,42 @@ namespace {
 
 #define CORE_INPUT_TYPES_UI \
 		CORE_INPUT_TYPES_BEGIN(ui) \
-		INPUT_PORT_DIGITAL_TYPE( 0, UI,       UI_MENU,              N_p("input-name", "Show/Hide Menu"),         input_seq(KEYCODE_TAB) ) \
-		INPUT_PORT_DIGITAL_TYPE( 0, UI,       UI_SELECT,            N_p("input-name", "UI Select"),              input_seq(KEYCODE_ENTER, input_seq::not_code, KEYCODE_LALT, input_seq::not_code, KEYCODE_RALT, input_seq::or_code, KEYCODE_ENTER_PAD) ) \
-		INPUT_PORT_DIGITAL_TYPE( 0, UI,       UI_BACK,              N_p("input-name", "UI Back"),                input_seq() ) \
-		INPUT_PORT_DIGITAL_TYPE( 0, UI,       UI_CANCEL,            N_p("input-name", "UI Cancel"),              input_seq() ) \
-		INPUT_PORT_DIGITAL_TYPE( 0, UI,       UI_CLEAR,             N_p("input-name", "UI Clear"),               input_seq() ) \
+		INPUT_PORT_DIGITAL_TYPE( 0, UI,       UI_MENU,              N_p("input-name", "Show/Hide Menu"),         input_seq(JOYCODE_BUTTON16_INDEXED(0), input_seq::or_code, KEYCODE_TAB) ) \
+		INPUT_PORT_DIGITAL_TYPE( 0, UI,       UI_SELECT,            N_p("input-name", "UI Select"),              input_seq(JOYCODE_BUTTON2_INDEXED(0), input_seq::or_code, KEYCODE_ENTER, input_seq::not_code, KEYCODE_LALT, input_seq::not_code, KEYCODE_RALT, input_seq::or_code, KEYCODE_ENTER_PAD) ) \
+		INPUT_PORT_DIGITAL_TYPE( 0, UI,       UI_BACK,              N_p("input-name", "UI Back"),                input_seq(JOYCODE_BUTTON3_INDEXED(0)) ) \
+		INPUT_PORT_DIGITAL_TYPE( 0, UI,       UI_CANCEL,            N_p("input-name", "UI Cancel"),              input_seq(JOYCODE_BUTTON12_INDEXED(0)) ) \
+		INPUT_PORT_DIGITAL_TYPE( 0, UI,       UI_CLEAR,             N_p("input-name", "UI Clear"),               input_seq(JOYCODE_BUTTON11_INDEXED(0)) ) \
 		INPUT_PORT_DIGITAL_TYPE( 0, UI,       UI_HELP,              N_p("input-name", "UI Help"),                input_seq() ) \
-		INPUT_PORT_DIGITAL_TYPE( 0, UI,       UI_UP,                N_p("input-name", "UI Up"),                  input_seq(KEYCODE_UP) ) \
-		INPUT_PORT_DIGITAL_TYPE( 0, UI,       UI_DOWN,              N_p("input-name", "UI Down"),                input_seq(KEYCODE_DOWN) ) \
-		INPUT_PORT_DIGITAL_TYPE( 0, UI,       UI_LEFT,              N_p("input-name", "UI Left"),                input_seq(KEYCODE_LEFT) ) \
-		INPUT_PORT_DIGITAL_TYPE( 0, UI,       UI_RIGHT,             N_p("input-name", "UI Right"),               input_seq(KEYCODE_RIGHT) ) \
+		INPUT_PORT_DIGITAL_TYPE( 0, UI,       UI_UP,                N_p("input-name", "UI Up"),                  input_seq(JOYCODE_Y_UP_SWITCH_INDEXED(0), input_seq::or_code, KEYCODE_UP) ) \
+		INPUT_PORT_DIGITAL_TYPE( 0, UI,       UI_DOWN,              N_p("input-name", "UI Down"),                input_seq(JOYCODE_Y_DOWN_SWITCH_INDEXED(0), input_seq::or_code, KEYCODE_DOWN) ) \
+		INPUT_PORT_DIGITAL_TYPE( 0, UI,       UI_LEFT,              N_p("input-name", "UI Left"),                input_seq(JOYCODE_X_LEFT_SWITCH_INDEXED(0), input_seq::or_code, KEYCODE_LEFT) ) \
+		INPUT_PORT_DIGITAL_TYPE( 0, UI,       UI_RIGHT,             N_p("input-name", "UI Right"),               input_seq(JOYCODE_X_RIGHT_SWITCH_INDEXED(0), input_seq::or_code, KEYCODE_RIGHT) ) \
 		INPUT_PORT_DIGITAL_TYPE( 0, UI,       UI_HOME,              N_p("input-name", "UI Home"),                input_seq(KEYCODE_HOME) ) \
 		INPUT_PORT_DIGITAL_TYPE( 0, UI,       UI_END,               N_p("input-name", "UI End"),                 input_seq(KEYCODE_END) ) \
-		INPUT_PORT_DIGITAL_TYPE( 0, UI,       UI_PAGE_UP,           N_p("input-name", "UI Page Up"),             input_seq(KEYCODE_PGUP) ) \
-		INPUT_PORT_DIGITAL_TYPE( 0, UI,       UI_PAGE_DOWN,         N_p("input-name", "UI Page Down"),           input_seq(KEYCODE_PGDN) ) \
-		INPUT_PORT_DIGITAL_TYPE( 0, UI,       UI_PREV_GROUP,        N_p("input-name", "UI Previous Group"),      input_seq() ) \
-		INPUT_PORT_DIGITAL_TYPE( 0, UI,       UI_NEXT_GROUP,        N_p("input-name", "UI Next Group"),          input_seq() ) \
+		INPUT_PORT_DIGITAL_TYPE( 0, UI,       UI_PAGE_UP,           N_p("input-name", "UI Page Up"),             input_seq(JOYCODE_BUTTON7_INDEXED(0), input_seq::or_code, KEYCODE_PGUP) ) \
+		INPUT_PORT_DIGITAL_TYPE( 0, UI,       UI_PAGE_DOWN,         N_p("input-name", "UI Page Down"),           input_seq(JOYCODE_BUTTON8_INDEXED(0), input_seq::or_code, KEYCODE_PGDN) ) \
+		INPUT_PORT_DIGITAL_TYPE( 0, UI,       UI_PREV_GROUP,        N_p("input-name", "UI Previous Group"),      input_seq(JOYCODE_BUTTON9_INDEXED(0)) ) \
+		INPUT_PORT_DIGITAL_TYPE( 0, UI,       UI_NEXT_GROUP,        N_p("input-name", "UI Next Group"),          input_seq(JOYCODE_BUTTON10_INDEXED(0)) ) \
 		INPUT_PORT_DIGITAL_TYPE( 0, UI,       UI_ON_SCREEN_DISPLAY, N_p("input-name", "On Screen Display"),      input_seq() ) \
 		INPUT_PORT_DIGITAL_TYPE( 0, UI,       UI_TOGGLE_UI,         N_p("input-name", "Toggle UI Controls"),     input_seq() ) \
 		INPUT_PORT_DIGITAL_TYPE( 0, UI,       UI_DEBUG_BREAK,       N_p("input-name", "Break in Debugger"),      input_seq() ) \
-		INPUT_PORT_DIGITAL_TYPE( 0, UI,       UI_PAUSE,             N_p("input-name", "Pause"),                  input_seq() ) \
-		INPUT_PORT_DIGITAL_TYPE( 0, UI,       UI_PAUSE_SINGLE,      N_p("input-name", "Pause - Single Step"),    input_seq() ) \
-		INPUT_PORT_DIGITAL_TYPE( 0, UI,       UI_REWIND_SINGLE,     N_p("input-name", "Rewind - Single Step"),   input_seq() ) \
-		INPUT_PORT_DIGITAL_TYPE( 0, UI,       UI_SAVE_STATE,        N_p("input-name", "Save State"),             input_seq() ) \
-		INPUT_PORT_DIGITAL_TYPE( 0, UI,       UI_LOAD_STATE,        N_p("input-name", "Load State"),             input_seq() ) \
+		INPUT_PORT_DIGITAL_TYPE( 0, UI,       UI_PAUSE,             N_p("input-name", "Pause"),                  input_seq(JOYCODE_BUTTON15_INDEXED(0), JOYCODE_BUTTON11_INDEXED(0)) ) \
+		INPUT_PORT_DIGITAL_TYPE( 0, UI,       UI_PAUSE_SINGLE,      N_p("input-name", "Pause - Single Step"),    input_seq(JOYCODE_BUTTON15_INDEXED(0), JOYCODE_Y_UP_SWITCH_INDEXED(0)) ) \
+		INPUT_PORT_DIGITAL_TYPE( 0, UI,       UI_REWIND_SINGLE,     N_p("input-name", "Rewind - Single Step"),   input_seq(JOYCODE_BUTTON15_INDEXED(0), JOYCODE_Y_DOWN_SWITCH_INDEXED(0)) ) \
+		INPUT_PORT_DIGITAL_TYPE( 0, UI,       UI_SAVE_STATE,        N_p("input-name", "Save State"),             input_seq(JOYCODE_BUTTON15_INDEXED(0), JOYCODE_BUTTON5_INDEXED(0)) ) \
+		INPUT_PORT_DIGITAL_TYPE( 0, UI,       UI_LOAD_STATE,        N_p("input-name", "Load State"),             input_seq(JOYCODE_BUTTON15_INDEXED(0), JOYCODE_BUTTON6_INDEXED(0)) ) \
 		INPUT_PORT_DIGITAL_TYPE( 0, UI,       UI_RESET_MACHINE,     N_p("input-name", "Reset Machine"),          input_seq() ) \
-		INPUT_PORT_DIGITAL_TYPE( 0, UI,       UI_SOFT_RESET,        N_p("input-name", "Soft Reset"),             input_seq() ) \
+		INPUT_PORT_DIGITAL_TYPE( 0, UI,       UI_SOFT_RESET,        N_p("input-name", "Soft Reset"),             input_seq(JOYCODE_BUTTON15_INDEXED(0), JOYCODE_BUTTON16_INDEXED(0)) ) \
 		INPUT_PORT_DIGITAL_TYPE( 0, UI,       UI_SHOW_GFX,          N_p("input-name", "Show Decoded Graphics"),  input_seq() ) \
 		INPUT_PORT_DIGITAL_TYPE( 0, UI,       UI_FRAMESKIP_DEC,     N_p("input-name", "Frameskip Dec"),          input_seq() ) \
 		INPUT_PORT_DIGITAL_TYPE( 0, UI,       UI_FRAMESKIP_INC,     N_p("input-name", "Frameskip Inc"),          input_seq() ) \
 		INPUT_PORT_DIGITAL_TYPE( 0, UI,       UI_THROTTLE,          N_p("input-name", "Throttle"),               input_seq() ) \
-		INPUT_PORT_DIGITAL_TYPE( 0, UI,       UI_FAST_FORWARD,      N_p("input-name", "Fast Forward"),           input_seq() ) \
+		INPUT_PORT_DIGITAL_TYPE( 0, UI,       UI_FAST_FORWARD,      N_p("input-name", "Fast Forward"),           input_seq(JOYCODE_BUTTON15_INDEXED(0), JOYCODE_X_RIGHT_SWITCH_INDEXED(0)) ) \
 		INPUT_PORT_DIGITAL_TYPE( 0, UI,       UI_SHOW_FPS,          N_p("input-name", "Show FPS"),               input_seq() ) \
-		INPUT_PORT_DIGITAL_TYPE( 0, UI,       UI_SNAPSHOT,          N_p("input-name", "Save Snapshot"),          input_seq() ) \
-		INPUT_PORT_DIGITAL_TYPE( 0, UI,       UI_RECORD_MNG,        N_p("input-name", "Record MNG"),             input_seq() ) \
+		INPUT_PORT_DIGITAL_TYPE( 0, UI,       UI_SNAPSHOT,          N_p("input-name", "Save Snapshot"),          input_seq(JOYCODE_BUTTON15_INDEXED(0), JOYCODE_BUTTON1_INDEXED(0)) ) \
+		INPUT_PORT_DIGITAL_TYPE( 0, UI,       UI_RECORD_MNG,        N_p("input-name", "Record MNG"),             input_seq(JOYCODE_BUTTON15_INDEXED(0), JOYCODE_BUTTON4_INDEXED(0)) ) \
 		INPUT_PORT_DIGITAL_TYPE( 0, UI,       UI_RECORD_AVI,        N_p("input-name", "Record AVI"),             input_seq() ) \
-		INPUT_PORT_DIGITAL_TYPE( 0, UI,       UI_TOGGLE_CHEAT,      N_p("input-name", "Toggle Cheat"),           input_seq() ) \
+		INPUT_PORT_DIGITAL_TYPE( 0, UI,       UI_TOGGLE_CHEAT,      N_p("input-name", "Toggle Cheat"),           input_seq(JOYCODE_BUTTON15_INDEXED(0), JOYCODE_BUTTON2_INDEXED(0)) ) \
 		INPUT_PORT_DIGITAL_TYPE( 0, UI,       UI_DISPLAY_COMMENT,   N_p("input-name", "UI Display Comment"),     input_seq() ) \
 		INPUT_PORT_DIGITAL_TYPE( 0, UI,       UI_ZOOM_IN,           N_p("input-name", "UI Zoom In"),             input_seq() ) \
 		INPUT_PORT_DIGITAL_TYPE( 0, UI,       UI_ZOOM_OUT,          N_p("input-name", "UI Zoom Out"),            input_seq() ) \
